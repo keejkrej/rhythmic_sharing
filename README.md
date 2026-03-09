@@ -15,7 +15,7 @@ This minimal model utilizes dynamical systems theory and algebraic topology (hom
 
 - **thomas.csv** : 	CSV file of simulated nonstationary data of Thomas system, whose states alternate from a limit cycle to a strange attractor at irregular times. This file is used in the example Python notebook that runs the algorithm (see below).
 - **thomas_periodic_orbit.csv** : CSV file of the periodic orbit of the Thomas system, corresponding to b = 0.29 (see sect.4.1.1 in the manuscript).
-- **rhythmic_sharing_example.ipynb** : Jupyter notebook of the algorithm using nonstationary data from the Thomas system, as used in the manuscript. Prediction of stationary states is not shown in the notebook, as that is up to the user to define which $\langle \Phi\rangle$ to freeze. Instead, an output trajectory showing the network continuously hopping through various individual attractors as $\langle \Phi\rangle$ evolves linearly is shown in the notebook output.
+- **rhythmic_sharing_example.ipynb** : Jupyter notebook of the algorithm using nonstationary data from the Thomas system, as used in the manuscript. Prediction of stationary states is not shown in the notebook, as that is up to the user to define which $\langle \Phi\rangle$ to freeze. Instead, an output trajectory showing the network continuously hopping through various individual attractors as $\langle \Phi\rangle$ evolves linearly is shown in the notebook output. _Please note that the equation numbers referenced in the notebook are aligned with the preprint manuscript._
 - **thomas_data_generate.nb** : Mathematica notebook used to generate thomas.csv.
   
 ## Compatibility
