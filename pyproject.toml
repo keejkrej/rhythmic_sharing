@@ -1,0 +1,19 @@
+[build-system]
+requires = ["hatchling>=1.27", "pathspec<0.13"]
+build-backend = "hatchling.build"
+
+[project]
+name = "rhythmic-sharing"
+version = "0.1.0"
+description = "Packaged training and inference code for the rhythmic sharing reservoir model."
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+  "networkx>=3.0",
+  "numpy>=1.24",
+  "pandas>=1.5",
+  "scipy>=1.10",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/rhythmic_sharing"]

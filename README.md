@@ -16,7 +16,41 @@ This minimal model utilizes dynamical systems theory and algebraic topology (hom
 - **thomas.csv** : 	CSV file of simulated nonstationary data of Thomas system, whose states alternate from a limit cycle to a strange attractor at irregular times. This file is used in the example Python notebook that runs the algorithm (see below).
 - **thomas_periodic_orbit.csv** : CSV file of the periodic orbit of the Thomas system, corresponding to b = 0.29 (see sect.IIB in the manuscript).
 - **rhythmic_sharing_example.ipynb** : Jupyter notebook of the algorithm using nonstationary data from the Thomas system, as used in the manuscript. Prediction of stationary states is not shown in the notebook, as that is up to the user to define which $\langle \Phi\rangle$ to freeze. Instead, an output trajectory showing the network continuously hopping through various individual attractors as $\langle \Phi\rangle$ evolves linearly is shown in the notebook output. _Please note that the equation numbers referenced in the notebook are aligned with the preprint manuscript._
+- **src/rhythmic_sharing/** : Python package with reusable training and inference code extracted from the notebook.
+- **pyproject.toml** : Hatchling project metadata for building and installing the package.
 - **thomas_data_generate.nb** : Mathematica notebook used to generate thomas.csv.
+
+## Package usage
+
+Install the package in editable mode:
+
+```bash
+pip install -e .
+```
+
+Minimal training and inference example:
+
+```python
+from rhythmic_sharing import (
+    InferenceConfig,
+    TrainingConfig,
+    load_state_csv,
+    predict,
+    train,
+)
+
+train_input = load_state_csv("thomas.csv")
+model = train(train_input, TrainingConfig())
+
+test_input = load_state_csv("thomas_periodic_orbit.csv")
+result = predict(model, test_input, InferenceConfig())
+
+prediction = result.prediction
+R = result.order_parameter
+mean_phase = result.mean_phase
+```
+
+The notebook remains in the repository for exploratory work and plotting, while the package exposes the same training and autoregressive inference flow through importable functions.
   
 ## Compatibility
 Python 3.9.13
